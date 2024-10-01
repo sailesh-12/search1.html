@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search-app</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <!-- Input field for search -->
+    <input type="text" id="input" style="color:black" oninput="onsearch()">
+    
+    <!-- List of items to search -->
+    <ul id="list">
+        <li>Milk</li>
+        <li>Eggs</li>
+        <li>Milk Bread</li>
+        <li>Cucumber Juice</li>
+        <li>Cheese</li>
+        <li>Water</li>
+    </ul>
+
+    <!-- Script defined in HTML itself -->
+    <script>
+        const onsearch = () => {
+            const search = document.getElementById("input").value;
+            const list = document.querySelectorAll("#list li");
+
+            list.forEach((item) => {
+                if (item.innerText.toLowerCase().includes(search.toLowerCase())) {
+                    item.style.display = "block";  // Show the item if it matches the search
+                } else {
+                    item.style.display = "none";   // Hide the item if it doesn't match
+                }
+            });
+        };
+    </script>
+</body>
+</html>
